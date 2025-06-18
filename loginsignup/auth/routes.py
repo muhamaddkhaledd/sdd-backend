@@ -13,7 +13,7 @@ class Register(Resource):
         parser.add_argument('email', required=True, help="Email cannot be blank!")
         parser.add_argument('password', required=True, help="Password cannot be blank!")
         parser.add_argument('birthdate', required=True, help="Birthdate cannot be blank!")
-        parser.add_argument('profile_image', type=FileStorage, location='files')
+        parser.add_argument('profile_image', required=True, help="Image cannot be blank!")
 
         args = parser.parse_args()
 

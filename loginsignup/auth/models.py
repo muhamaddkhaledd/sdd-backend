@@ -24,11 +24,8 @@ class JSONEncoder(json.JSONEncoder):
 
 class User:
     @staticmethod
-    def create_user(first_name, last_name, email, password, birthdate, profile_image=None):
+    def create_user(first_name, last_name, email, password, birthdate, profile_image):
         # Handle image upload
-        image_data = None
-        if profile_image:
-            image_data = base64.b64encode(profile_image.read()).decode('utf-8')
 
         user_data = {
             'first_name': first_name,
@@ -36,7 +33,7 @@ class User:
             'email': email,
             'password': generate_password_hash(password).decode('utf-8'),
             'birthdate': datetime.strptime(birthdate, '%Y-%m-%d'),
-            'profile_image': image_data,
+            'profile_image': profile_image,
             'created_at': datetime.utcnow()
         }
         result = users.insert_one(user_data)
