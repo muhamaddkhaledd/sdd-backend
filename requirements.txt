@@ -1,0 +1,7 @@
+Flask
+Flask-RESTful
+Flask-Bcrypt
+Flask-JWT-Extended
+python-dotenv
+pymongo
+Werkzeug
